@@ -22,9 +22,13 @@ before_install:
 install:
   - git checkout $TRAVIS_COMMIT
   - composer install
-  - composer require drupal/coder
 
 script:
+  - cd profiles
+  - wget https://github.com/vaibhavjain-in/ezcontent/archive/travis.zip
+  - unzip travis.zip
+  - rm -rf travis.zip
+  - cd ..
   - ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer/
-  - ./vendor/bin/phpcs --standard=Drupal docroot/profiles/contrib/ezcontent
-  - ./vendor/bin/phpcs --standard=DrupalPractice docroot/profiles/contrib/ezcontent
+  - ./vendor/bin/phpcs --standard=Drupal profiles
+  - ./vendor/bin/phpcs --standard=DrupalPractice profiles
