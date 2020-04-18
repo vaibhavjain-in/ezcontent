@@ -20,11 +20,11 @@ before_install:
   - export COMPOSER_MEMORY_LIMIT=-1
 
 install:
-  - composer create-project srijanone/ezcontent-project:8.x-dev ezcontent-ci --no-interaction;
+  - git checkout $TRAVIS_COMMIT
+  - composer install
+  - composer require drupal/coder
 
 script:
-  - cd ezcontent-ci
-  - composer require drupal/coder
   - ./vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer/
   - ./vendor/bin/phpcs --standard=Drupal docroot/profiles/contrib/ezcontent
   - ./vendor/bin/phpcs --standard=DrupalPractice docroot/profiles/contrib/ezcontent
