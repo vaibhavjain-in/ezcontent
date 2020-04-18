@@ -8,7 +8,7 @@ cache:
     - "$HOME/.drush/cache"
 
 php:
-  - 7.4
+  - 7.3
 
 before_install:
   - composer self-update
