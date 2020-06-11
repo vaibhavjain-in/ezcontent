@@ -13,16 +13,16 @@ parameters:
       ignore_patterns:
         - vendor
       triggered_by:
-        - php
-        - module
-        - inc
-        - install
-        - test
-        - profile
         - css
+        - inc
         - info
-        - txt
+        - install
         - md
+        - module
+        - php
+        - profile
+        - test
+        - txt
     phplint: ~
     twigcs: ~
     yamllint: ~
