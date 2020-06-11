@@ -1,2 +1,24 @@
 parameters:
-    tasks: { phpcs: null }
+  tasks:
+    phplint: ~
+    yamllint: ~
+    composer: ~
+    composer_normalize: ~
+    jsonlint: ~
+    phpcpd:
+      directory: ['./modules', './src', './tests']
+    phpcs:
+      standard: Drupal
+      ignore_patterns:
+        - vendor
+      triggered_by:
+        - php
+        - module
+        - inc
+        - install
+        - test
+        - profile
+        - css
+        - info
+        - txt
+        - md
